@@ -1,2 +1,2 @@
 # MediathequeProject
-Do frontend and backend on a project for the training fullstack dev.
+Do frontend and backend on a project for the fullstack dev training.
