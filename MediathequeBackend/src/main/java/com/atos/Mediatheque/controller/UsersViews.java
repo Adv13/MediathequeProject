@@ -1,4 +1,4 @@
-package com.example.Mediatheque.controller;
+package com.atos.Mediatheque.controller;
 
 public class UsersViews {
 	public class AllUsers {}; 
