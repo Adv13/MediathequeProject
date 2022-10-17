@@ -22,3 +22,7 @@ insert into cd (id, artiste_groupe, duree, nombre_titre) values (6, 'Line Renaud
 
 insert into dvd (id, realisateur, duree, type) values (7, 'René Goscinny et Albert Uderzo', 82, 'NORMAL');
 insert into dvd (id, realisateur, duree, type) values (8, 'Alain Berberian', 120, 'BLUE_RAY');
+
+insert into emprunt (numero, date_emprunt, date_retour, user_id) values (1, '2022-10-13', '2022-10-21', 1);
+insert into emprunt_items (emprunts_numero, items_id) values (1, 1); 
+insert into emprunt_items (emprunts_numero, items_id) values (1, 3);

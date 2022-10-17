@@ -1,5 +1,6 @@
 package com.atos.Mediatheque.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -32,6 +33,8 @@ public class Emprunt {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonView(UsersViews.OneUser.class)
 	private long numero;
+	private Date dateEmprunt;
+	private Date dateRetour;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id")
@@ -48,13 +51,20 @@ public class Emprunt {
 		super();
 	}
 	
-	public Emprunt(long numero, User user, List<Item> items) {
+	public Emprunt(long numero, Date dateEmprunt, Date dateRetour, User user, List<Item> items) {
 		super();
 		this.numero = numero;
+		this.dateEmprunt = dateEmprunt;
+		this.dateRetour = dateRetour;
 		this.user = user;
 		this.items = items;
 	}
 	
+	public Emprunt(User user, List<Item> items) {
+		super();
+		this.user = user;
+		this.items = items;
+	}
 
 	public long getNumero() {
 		return numero;
@@ -62,6 +72,22 @@ public class Emprunt {
 
 	public void setNumero(long numero) {
 		this.numero = numero;
+	}
+
+	public Date getDateEmprunt() {
+		return dateEmprunt;
+	}
+
+	public void setDateEmprunt(Date dateEmprunt) {
+		this.dateEmprunt = dateEmprunt;
+	}
+
+	public Date getDateRetour() {
+		return dateRetour;
+	}
+
+	public void setDateRetour(Date dateRetour) {
+		this.dateRetour = dateRetour;
 	}
 
 	public User getUser() {
@@ -82,7 +108,6 @@ public class Emprunt {
 
 	public static long getSerielversionuid() {
 		return serielVersionUID;
-	}
-	
+	}	
 	
 }
