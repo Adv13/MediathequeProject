@@ -1,6 +1,7 @@
 package com.atos.Mediatheque.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -17,5 +18,5 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
 
 	//afficher les documents dont le titre contenant une chaîne particulière
-	public List<Item> findBytitreContainingIgnoreCase(String chaineTitre); 
+	public Optional<Item> findBytitreContainingIgnoreCase(String chaineTitre);
 }

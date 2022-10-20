@@ -1,5 +1,7 @@
 package com.atos.Mediatheque.service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -12,6 +14,7 @@ import com.atos.Mediatheque.model.Item;
 import com.atos.Mediatheque.model.User;
 import com.atos.Mediatheque.repository.EmpruntRepository;
 import com.atos.Mediatheque.repository.ItemRepository;
+import com.atos.Mediatheque.repository.UserRepository;
 
 @Service
 @Transactional
@@ -23,6 +26,9 @@ public class MediathequeServiceImplement implements IMediatheque {
 	@Autowired
 	private EmpruntRepository empruntRepository; 
 
+	@Autowired
+	private UserRepository userRepository;
+
 	@Override
 	public List<Item> consulterItem() {
 
@@ -30,39 +36,55 @@ public class MediathequeServiceImplement implements IMediatheque {
 	}
 
 	@Override
-	public void effectuerEmprunt(User user, Emprunt emprunt) {
-		List<Item> items = consulterItem();  
+	public Emprunt effectuerEmprunt(User user, List<Item> items) throws Exception {
+		List<Item> itemEmprunt = new ArrayList();  
 
-		for (Item itemDisponible: items) {
-			for (Item itemEmprunter: emprunt.getItems() ) {
-				if ((itemDisponible.getId()== itemEmprunter.getId()) && itemEmprunter.getNombreExemplaires()> 0) {
-					itemDisponible.setNombreExemplaires(itemDisponible.getNombreExemplaires()-1);
-				}
+		for (Item item: items) {
+			Item dr = itemRepository.findById(item.getId()).orElseThrow(() -> new Exception());
+			if (dr.getNombreExemplaires() == 0) {
+				throw new Exception();
 			}
+			dr.setNombreExemplaires(dr.getNombreExemplaires()-1);
+			itemEmprunt.add(dr);
 		}
 
-		empruntRepository.save(emprunt); 
+		Emprunt emprunt = new Emprunt(); 
+		emprunt.setDateEmprunt(new Date());
+		emprunt.setItems(itemEmprunt);
+		emprunt.setUser(user);
 
 
-	}
-
-	@Override
-	public void restituerEmprunt(User user, Emprunt emprunt) {
-		List<Item> items = consulterItem();  
-
-		for (Item itemDisponible: items) {
-			for (Item itemEmprunter: emprunt.getItems() ) {
-				if ((itemDisponible.getId()== itemEmprunter.getId())) {
-					itemDisponible.setNombreExemplaires(itemDisponible.getNombreExemplaires()+1);
-				}
-			}
+		if(user.getEmprunts().size() < 3) {
+			empruntRepository.save(emprunt);
+		} else {
+			throw new Exception();
+		}
+		for ( Item item : itemEmprunt ) {
+			itemRepository.save(item);
 		}
 
-		empruntRepository.save(emprunt); 
+
+		return emprunt;
 	}
 
-	//	@Override
-	//	public List<Emprunt> visualiserEmprunt(User user, Emprunt emprunt) {
+
+@Override
+public void restituerEmprunt(User user, Emprunt emprunt) {
+	List<Item> items = consulterItem();  
+
+	for (Item itemDisponible: items) {
+		for (Item itemEmprunter: emprunt.getItems() ) {
+			if ((itemDisponible.getId()== itemEmprunter.getId())) {
+				itemDisponible.setNombreExemplaires(itemDisponible.getNombreExemplaires()+1);
+			}
+		}
+	}
+
+	empruntRepository.save(emprunt); 
+}
+
+//	@Override
+//	public List<Emprunt> visualiserEmprunt(User user, Emprunt emprunt) {
 	//		
 	//		return empruntRepository.visualiserEmprunt(user, emprunt); 
 	//	}

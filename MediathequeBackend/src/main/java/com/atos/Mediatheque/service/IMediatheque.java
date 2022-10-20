@@ -11,7 +11,7 @@ import com.atos.Mediatheque.model.User;
 public interface IMediatheque {
 
 	public List<Item> consulterItem(); 
-	public void effectuerEmprunt(User user, Emprunt emprunt); 
+	public Emprunt effectuerEmprunt(User user, List<Item> items) throws Exception; 
 	public void restituerEmprunt(User user,  Emprunt emprunt); 
 //	public List<Emprunt> visualiserEmprunt(User user,  Emprunt emprunt); 
 
