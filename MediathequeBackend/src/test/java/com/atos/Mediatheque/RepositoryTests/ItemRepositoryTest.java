@@ -1,5 +1,6 @@
 package com.atos.Mediatheque.RepositoryTests;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
@@ -20,6 +21,11 @@ public class ItemRepositoryTest {
 
 	@Autowired
 	ItemRepository itemRepository;
+	
+	@BeforeEach
+	public void assertEach() {
+		System.out.println("...............................ITEM TEST...................................");
+	}
 	
 	@Test
 	void testByContainingTitreIgnoringCase() {

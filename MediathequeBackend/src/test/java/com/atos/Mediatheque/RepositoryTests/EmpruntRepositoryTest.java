@@ -1,5 +1,6 @@
 package com.atos.Mediatheque.RepositoryTests;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,8 +16,13 @@ public class EmpruntRepositoryTest {
 	@Autowired
 	MediathequeServiceImplement empruntService;
 	
+	@BeforeEach
+	public void assertEach() {
+		System.out.println("................................EMPRUNT TEST..................................");
+	}
+	
 	@Test
-	void testRestituerDocumentById() {
+	void testRestituerItemById() {
 		//Emprunt e = empruntService.effectuerEmprunt(1, 1);
 		//System.out.println("Restituer item emprunté "+e);
 			
