@@ -22,6 +22,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	    @Query("from User u left join fetch u.emprunts where u.id =:id")
 	    public Optional<User> fullLoad(Long id);
 	
+	    public Optional<User> findByLogin(String login); 
 	
 	 // sauvegarder un client 
 	 // public User saveUser(User user); 
