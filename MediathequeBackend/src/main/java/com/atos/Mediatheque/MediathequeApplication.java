@@ -2,9 +2,9 @@ package com.atos.Mediatheque;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+//import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-@EnableWebMvc
+//@EnableWebMvc
 @SpringBootApplication
 public class MediathequeApplication {
 

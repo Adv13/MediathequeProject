@@ -1,4 +1,4 @@
-package com.example.Mediatheque;
+package com.atos.Mediatheque;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

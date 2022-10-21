@@ -1,4 +1,4 @@
-package com.example.Mediatheque.RepositoryTests;
+package com.atos.Mediatheque.RepositoryTests;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,12 +12,8 @@ import com.atos.Mediatheque.repository.ItemRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 
 @DataJpaTest
-@ContextConfiguration
-@SpringBootTest
 public class ItemRepositoryTest {
 
 	@Autowired
@@ -26,10 +22,10 @@ public class ItemRepositoryTest {
 	@Test
 
 	void testByContainingTitreIgnoringCase() {
-		Optional<Item> found = itemRepository.findBytitreContainingIgnoreCase("Tolkien");
+		Optional<Item> found = itemRepository.findByTitreContainingIgnoreCase("Tolkien");
 		assertTrue(found.isPresent());
 		
-		Optional<Item> notFound = itemRepository.findBytitreContainingIgnoreCase("notFound");
+		Optional<Item> notFound = itemRepository.findByTitreContainingIgnoreCase("notFound");
 		assertTrue(!notFound.isPresent());
 	}
 }
