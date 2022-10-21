@@ -68,17 +68,17 @@ public class MediathequeServiceImplement implements IMediatheque {
 	}
 
 
-@Override
-public void restituerEmprunt(User user, Emprunt emprunt) {
-	List<Item> items = consulterItem();  
-
-	for (Item itemDisponible: items) {
-		for (Item itemEmprunter: emprunt.getItems() ) {
-			if ((itemDisponible.getId()== itemEmprunter.getId())) {
-				itemDisponible.setNombreExemplaires(itemDisponible.getNombreExemplaires()+1);
+	@Override
+	public void restituerEmprunt(User user, Emprunt emprunt) {
+		List<Item> items = consulterItem();  
+	
+		for (Item itemDisponible: items) {
+			for (Item itemEmprunter: emprunt.getItems() ) {
+				if ((itemDisponible.getId()== itemEmprunter.getId())) {
+					itemDisponible.setNombreExemplaires(itemDisponible.getNombreExemplaires()+1);
+				}
 			}
 		}
-	}
 
 	empruntRepository.save(emprunt); 
 }
