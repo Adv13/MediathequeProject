@@ -66,12 +66,12 @@ public class EmpruntRepositoryTest {
 	public void CheckIfTheListOfCopiesBorrowedAreEmpty() /*throws AvailableCopieException, QuotasExceedException, DepassementException, ItemNotFoundException*/ {
 
 		Emprunt emprunt = new Emprunt();
-		emprunt.setId(1L);
-		emprunt.setEndDate(LocalDateTime.of(2022, 03, 26, 20, 20));
-		emprunt.setStartDate(LocalDateTime.of(2022,03,24,1,1));
+		emprunt.setNumero(1L);
+		emprunt.setDateRetour(Date(2022, 03, 26, 20, 20));
+		emprunt.setDateEmprunt(LocalDateTime.of(2022,03,24,1,1));
 		
-		LocalDateTime a=emprunt.getStartDate();
-		LocalDateTime b=emprunt.getEndDate();
+		LocalDateTime a=emprunt.getDateEmprunt();
+		LocalDateTime b=emprunt.getDateRetour();
 		
 		long differenceInDays = ChronoUnit.DAYS.between(a,b);
 		

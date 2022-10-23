@@ -1,5 +1,6 @@
 package com.atos.Mediatheque.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import javax.persistence.ManyToOne;
 
 import com.atos.Mediatheque.controller.EmpruntViews;
 import com.atos.Mediatheque.controller.UsersViews;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -33,8 +35,12 @@ public class Emprunt {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonView(UsersViews.OneUser.class)
 	private long numero;
+	
 	private Date dateEmprunt;
-	private Date dateRetour;
+	
+	//@NotNull
+	@JsonFormat(shape = JsonFormat.Shape.NUMBER, pattern = "yyyy-MM-dd")
+	private LocalDateTime dateRetour;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id")
@@ -51,7 +57,7 @@ public class Emprunt {
 		super();
 	}
 	
-	public Emprunt(long numero, Date dateEmprunt, Date dateRetour, User user, List<Item> items) {
+	public Emprunt(long numero, Date dateEmprunt, LocalDateTime dateRetour, User user, List<Item> items) {
 		super();
 		this.numero = numero;
 		this.dateEmprunt = dateEmprunt;
@@ -82,12 +88,12 @@ public class Emprunt {
 		this.dateEmprunt = dateEmprunt;
 	}
 
-	public Date getDateRetour() {
+	public LocalDateTime getDateRetour() {
 		return dateRetour;
 	}
 
-	public void setDateRetour(Date dateRetour) {
-		this.dateRetour = dateRetour;
+	public void setDateRetour(LocalDateTime localDateTime) {
+		this.dateRetour = localDateTime;
 	}
 
 	public User getUser() {
