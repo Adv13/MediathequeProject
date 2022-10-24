@@ -29,11 +29,11 @@ public class MediathequeServiceImplement implements IMediatheque {
 	@Autowired
 	private UserRepository userRepository;
 
-	@Override
-	public List<Item> consulterItem() {
-
-		return itemRepository.findAll();
-	}
+	/*
+	 * @Override public List<Item> consulterItem() {
+	 * 
+	 * return itemRepository.findAll(); }
+	 */
 
 	@Override
 	public Emprunt effectuerEmprunt(User user, List<Item> items) throws Exception {
