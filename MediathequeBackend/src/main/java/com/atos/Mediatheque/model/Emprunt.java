@@ -39,8 +39,8 @@ public class Emprunt {
 	private Date dateEmprunt;
 	
 	//@NotNull
-	@JsonFormat(shape = JsonFormat.Shape.NUMBER, pattern = "yyyy-MM-dd")
-	private LocalDateTime dateRetour;
+	//@JsonFormat(shape = JsonFormat.Shape.NUMBER, pattern = "yyyy-MM-dd")
+	private Date dateRetour;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id")
@@ -57,7 +57,7 @@ public class Emprunt {
 		super();
 	}
 	
-	public Emprunt(long numero, Date dateEmprunt, LocalDateTime dateRetour, User user, List<Item> items) {
+	public Emprunt(long numero, Date dateEmprunt, Date dateRetour, User user, List<Item> items) {
 		super();
 		this.numero = numero;
 		this.dateEmprunt = dateEmprunt;
@@ -88,11 +88,11 @@ public class Emprunt {
 		this.dateEmprunt = dateEmprunt;
 	}
 
-	public LocalDateTime getDateRetour() {
+	public Date getDateRetour() {
 		return dateRetour;
 	}
 
-	public void setDateRetour(LocalDateTime localDateTime) {
+	public void setDateRetour(Date localDateTime) {
 		this.dateRetour = localDateTime;
 	}
 
