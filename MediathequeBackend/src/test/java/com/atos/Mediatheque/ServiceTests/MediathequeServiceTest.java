@@ -9,8 +9,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.project.model.Document;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,7 +22,9 @@ import com.atos.Mediatheque.repository.EmpruntRepository;
 import com.atos.Mediatheque.repository.ItemRepository;
 import com.atos.Mediatheque.service.IMediatheque;
 
+
 @SpringBootTest
+//@DataJpaTest
 public class MediathequeServiceTest {
 
 	@Autowired
