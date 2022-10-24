@@ -74,6 +74,10 @@ public class MediathequeServiceTest {
 		doc1.setId(4l);
 		Item doc2 = new Item();
 		doc2.setId(5l);
+		Item doc3 = new Item();
+		doc3.setId(2l);
+		Item doc4 = new Item();
+		doc4.setId(6l);
 		docs.add(doc1);
 		docs.add(doc2);
 
