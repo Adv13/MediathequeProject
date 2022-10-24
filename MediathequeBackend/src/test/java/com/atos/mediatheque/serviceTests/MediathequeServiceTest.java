@@ -51,9 +51,9 @@ public class MediathequeServiceTest {
 
 		List<Item> docs = new ArrayList<>();
 		Item doc1 = new Item();
-		doc1.setId(13l);
+		doc1.setId(1l);
 		Item doc2 = new Item();
-		doc2.setId(24l);
+		doc2.setId(2l);
 		docs.add(doc1);
 		docs.add(doc2);
 		
@@ -101,10 +101,10 @@ public class MediathequeServiceTest {
 		
 		mediathequeService.restituerEmprunt(emprunt);
 		
-		assertEquals(0, empruntRepository.findAll().size() == 0);
-		System.out.println("******************************" + itemRepository.findById(3l).get().getNombreExemplaires()); 
+		assertEquals(0, empruntRepository.findAll().size());
+		//System.out.println("******************************" + itemRepository.findById(3l).get().getNombreExemplaires()); 
 		
-		//assertTrue(itemRepository.findById(3l).get().getNombreExemplaires() == 61); 
 		assertEquals(265, itemRepository.findById(3l).get().getNombreExemplaires());
+		//assertTrue(itemRepository.findById(3l).get().getNombreExemplaires() == 265);
 	}
 }
