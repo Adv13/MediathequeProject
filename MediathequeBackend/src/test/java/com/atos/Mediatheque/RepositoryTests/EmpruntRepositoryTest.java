@@ -37,37 +37,30 @@ public class EmpruntRepositoryTest {
 	
 	//A retravailler plus tard
 	
-	@Test
-	void testRestituerItemById() throws Exception {
-		
-		User user = new User();
-		user.setId(1l);
-		List<Item> docs = new ArrayList<>();
-		Item doc1 = new Item();
-		doc1.setId(4l);
-		docs.add(doc1);
-		
-		Emprunt e = empruntService.effectuerEmprunt(user, docs);
-		System.out.println("Restituer item emprunté : "+e);
-			
-	}
+	/*
+	 * @Test void testRestituerItemById() throws Exception {
+	 * 
+	 * User user = new User(); user.setId(1l); List<Item> docs = new ArrayList<>();
+	 * Item doc1 = new Item(); doc1.setId(4l); docs.add(doc1);
+	 * 
+	 * Emprunt e = empruntService.effectuerEmprunt(user, docs);
+	 * System.out.println("Restituer item emprunté : "+e);
+	 * 
+	 * }
+	 */
 	
 	//A retravailler plus tard
 	
-    @Test
-    void testFindByUsers() throws Exception{
-    	
-        User user = new User();
-        user.setId(1l);
-		List<Item> docs = new ArrayList<>();
-		Item doc1 = new Item();
-		doc1.setId(4l);
-		docs.add(doc1);
-        
-        
-        Emprunt e = empruntService.effectuerEmprunt(user, docs);
-
-        List<Emprunt> findByUserResult = empruntRepository.findEmpruntById(user);
-        assertTrue(findByUserResult.size() > 0);
-    }
+	/*
+	 * @Test void testFindByUsers() throws Exception{
+	 * 
+	 * User user = new User(); user.setId(1l); List<Item> docs = new ArrayList<>();
+	 * Item doc1 = new Item(); doc1.setId(4l); docs.add(doc1);
+	 * 
+	 * 
+	 * Emprunt e = empruntService.effectuerEmprunt(user, docs);
+	 * 
+	 * List<Emprunt> findByUserResult = empruntRepository.findEmpruntById(user);
+	 * assertTrue(findByUserResult.size() > 0); }
+	 */
 }
