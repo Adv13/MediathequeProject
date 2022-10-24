@@ -39,7 +39,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 	//	public List<Document> findByRecentDateParution(Date date); 
 
 	//afficher les documents dont le titre contenant une chaîne particulière
-	public Optional<Item> findByTitreContainingIgnoreCase(String chaineTitre);
+	public List<Item> findByTitreContainingIgnoreCase(String chaineTitre);
 	//afficher les documents par date de parution
 	//public Optional<Item> findAllByDateParution(Date dateParution);
 

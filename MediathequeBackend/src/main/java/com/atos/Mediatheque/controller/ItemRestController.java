@@ -55,6 +55,6 @@ public class ItemRestController {
 		@GetMapping("/search")
 		public List<Item>  searchItemByString(@RequestParam String q) {
 
-			return itemRepository.findBytitreContainingIgnoreCase(q); 
+			return itemRepository.findByTitreContainingIgnoreCase(q); 
 		}
 }

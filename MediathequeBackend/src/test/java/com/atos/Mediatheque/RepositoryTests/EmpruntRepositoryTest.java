@@ -35,6 +35,8 @@ public class EmpruntRepositoryTest {
 		System.out.println("................................EMPRUNT TEST..................................");
 	}
 	
+	//A retravailler plus tard
+	
 	@Test
 	void testRestituerItemById() throws Exception {
 		
@@ -50,6 +52,7 @@ public class EmpruntRepositoryTest {
 			
 	}
 	
+	//A retravailler plus tard
 	
     @Test
     void testFindByUsers() throws Exception{
@@ -63,7 +66,6 @@ public class EmpruntRepositoryTest {
         
         
         Emprunt e = empruntService.effectuerEmprunt(user, docs);
-        user.setId(2l);
 
         List<Emprunt> findByUserResult = empruntRepository.findEmpruntById(user);
         assertTrue(findByUserResult.size() > 0);
