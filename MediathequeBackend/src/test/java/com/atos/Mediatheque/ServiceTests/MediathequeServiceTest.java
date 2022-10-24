@@ -79,7 +79,7 @@ public class MediathequeServiceTest {
 
 		try {
 			Emprunt emprunt = mediathequeService.effectuerEmprunt(user1, docs);
-			fail("Exception not thrown");
+			fail("Exception not thrown" + emprunt);
 		} catch (Exception e) {
 			System.out.println("OK");
 		}
