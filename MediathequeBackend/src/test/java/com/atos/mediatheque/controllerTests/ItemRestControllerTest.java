@@ -1,5 +1,5 @@
 package com.atos.mediatheque.controllerTests;
-
+/*
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
@@ -16,4 +16,4 @@ public class ItemRestControllerTest {
 		
 		Item item = restTemplate.getForObject("/", Item.class); 
 	}
-}
+}*/

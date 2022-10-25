@@ -32,10 +32,10 @@ public class EmpruntRestController {
 	@Autowired
 	private UserRepository userRepository;
 
-	@PostMapping("/emprunts/{id_user}")
-	public Emprunt effectuerEmprunt(@PathVariable Long id_user,@RequestBody List<Item> items) throws Exception {
-		User user = userRepository.findById(id_user).orElseThrow(() -> new UserNotFoundException());
-		user.setId(id_user); 
+	@PostMapping("/emprunts/{id_emprunt}")
+	public Emprunt effectuerEmprunt(@PathVariable Long id_emprunt,@RequestBody List<Item> items) throws Exception {
+		User user = userRepository.findById(id_emprunt).orElseThrow(() -> new UserNotFoundException());
+		user.setId(id_emprunt); 
 		return iMediatheque.effectuerEmprunt(user, items);
 	}
 
