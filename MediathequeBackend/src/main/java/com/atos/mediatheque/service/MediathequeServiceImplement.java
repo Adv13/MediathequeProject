@@ -89,7 +89,7 @@ public class MediathequeServiceImplement implements IMediatheque {
 		}
 
 		empruntRepository.deleteById(emprunt.getNumero()); 
-		// save et update date de retour plutot
+		// save et update date de retour plutot ?
 }
 
 //	@Override
