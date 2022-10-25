@@ -1,6 +1,6 @@
 package com.atos.mediatheque.service;
 
-
+/*
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,4 +33,4 @@ public class UserAuthentificationService implements UserDetailsService  {
 	 grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 	 return new User(user.getLogin(),"{noop}" + user.getPassword(), grantedAuthorities); }
 	 
-}
+}*/

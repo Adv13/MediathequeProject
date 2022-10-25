@@ -1,5 +1,5 @@
 package com.atos.mediatheque;
-
+/*
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -35,7 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// TODO Auto-generated method stub
 		//super.configure(web);
 		web.ignoring()
-		.antMatchers("/**/*.js","/**/*.css","/**/*.png","/**/*.ico");//ignorer les javascrpt, les css et les images
+		.antMatchers("/**.js","*.css","*.png","*.ico");//ignorer les javascrpt, les css et les images
 
 	}
-}
+}*/
